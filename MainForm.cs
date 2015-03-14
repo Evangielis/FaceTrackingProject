@@ -934,6 +934,8 @@ namespace DF_FaceTracking.cs
                             positionY += imageSizeHeight;
                             positionYText += imageSizeHeight;
                         }
+
+                        Console.WriteLine(expressionEntry.Key + ":" + result.intensity);
                     }
                 }
             }
