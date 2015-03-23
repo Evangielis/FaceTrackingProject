@@ -1,9 +1,0 @@
-C:\Users\h2r\Source\Repos\FaceTrackingProj\bin\x64\Debug\DF_FaceTracking.cs.exe.config
-C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.exe
-C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.pdb
-C:\Users\h2r\Source\Repos\FaceTrackingProj\bin\x64\Debug\DF_FaceTracking.cs.exe
-C:\Users\h2r\Source\Repos\FaceTrackingProj\bin\x64\Debug\DF_FaceTracking.cs.pdb
-C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\FaceTrackingProj.csprojResolveAssemblyReference.cache
-C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.MainForm.resources
-C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.Properties.Resources.resources
-C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\FaceTrackingProj.csproj.GenerateResource.Cache
