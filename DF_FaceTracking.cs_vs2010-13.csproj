@@ -91,6 +91,18 @@
   <ItemGroup>
     <Compile Include="FaceTextOrganizer.cs" />
     <Compile Include="FaceTracking.cs" />
+    <Compile Include="QuizQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuizQuestion.Designer.cs">
+      <DependentUpon>QuizQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuizStartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuizStartForm.Designer.cs">
+      <DependentUpon>QuizStartForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +153,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="QuizStartForm.resx">
+      <DependentUpon>QuizStartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>

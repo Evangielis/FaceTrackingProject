@@ -19,6 +19,10 @@ namespace DF_FaceTracking.cs
             AlertsLabel
         };
 
+        
+
+        private FaceTracking trackingModule;
+
         public PXCMSession Session;
         public volatile bool Register = false;
         public volatile bool Unregister = false;        
@@ -509,14 +513,22 @@ namespace DF_FaceTracking.cs
                 UnregisterUser.Enabled = true;
             }
 
+            this.trackingModule = new FaceTracking(this);
+
             Stopped = false;
             var thread = new Thread(DoTracking);
             thread.Start();
+
+            QuizStartForm quiz = new QuizStartForm(this);
+            quiz.Show();
+
+            Console.Out.WriteLine("Method completed!");
         }
 
         private void DoTracking()
         {
-            var ft = new FaceTracking(this);
+            var ft = this.trackingModule;
+            
             ft.SimplePipeline();
 
             Invoke(new DoTrackingCompleted(() =>
@@ -795,6 +807,24 @@ namespace DF_FaceTracking.cs
                 {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_BROW_RAISER_LEFT, @"Brow_Raiser_Left"}
             };
 
+        public Dictionary<PXCMFaceData.ExpressionsData.FaceExpression, int> m_expressionStatus =
+            new Dictionary<PXCMFaceData.ExpressionsData.FaceExpression, int>
+            {
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_MOUTH_OPEN, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_SMILE, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_KISS, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_EYES_UP, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_EYES_DOWN, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_EYES_TURN_LEFT, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_EYES_TURN_RIGHT, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_EYES_CLOSED_LEFT, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_EYES_CLOSED_RIGHT, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_BROW_LOWERER_RIGHT, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_BROW_LOWERER_LEFT, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_BROW_RAISER_RIGHT, 0},
+                {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_BROW_RAISER_LEFT, 0}
+            };
+
         public void DrawLocation(PXCMFaceData.Face face)
         {
             Debug.Assert(face != null);
@@ -934,6 +964,8 @@ namespace DF_FaceTracking.cs
                             positionY += imageSizeHeight;
                             positionYText += imageSizeHeight;
                         }
+
+                        this.m_expressionStatus[expressionEntry.Key] = result.intensity;
                     }
                 }
             }
