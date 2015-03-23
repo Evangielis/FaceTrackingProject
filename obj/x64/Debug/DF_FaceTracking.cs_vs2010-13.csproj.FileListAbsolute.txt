@@ -8,3 +8,13 @@ C:\Program Files (x86)\Intel\RSSDK\framework\CSharp\DF_FaceTracking.cs\obj\x64\D
 C:\Program Files (x86)\Intel\RSSDK\framework\CSharp\DF_FaceTracking.cs\obj\x64\Debug\DF_FaceTracking.cs_vs2010-13.csproj.GenerateResource.Cache
 C:\Program Files (x86)\Intel\RSSDK\framework\CSharp\DF_FaceTracking.cs\obj\x64\Debug\DF_FaceTracking.cs.exe
 C:\Program Files (x86)\Intel\RSSDK\framework\CSharp\DF_FaceTracking.cs\obj\x64\Debug\DF_FaceTracking.cs.pdb
+C:\Users\h2r\Source\Repos\FaceTrackingProj\bin\x64\Debug\DF_FaceTracking.cs.exe.config
+C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.exe
+C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.pdb
+C:\Users\h2r\Source\Repos\FaceTrackingProj\bin\x64\Debug\DF_FaceTracking.cs.exe
+C:\Users\h2r\Source\Repos\FaceTrackingProj\bin\x64\Debug\DF_FaceTracking.cs.pdb
+C:\Users\h2r\Source\Repos\FaceTrackingProj\bin\x64\Debug\libpxcclr.cs.dll
+C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs_vs2010-13.csprojResolveAssemblyReference.cache
+C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.MainForm.resources
+C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.Properties.Resources.resources
+C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs_vs2010-13.csproj.GenerateResource.Cache

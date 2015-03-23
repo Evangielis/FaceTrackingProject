@@ -68,7 +68,7 @@ namespace DF_FaceTracking.cs
 
             foreach (var textBox in m_modulesTextBoxes)
             {
-                textBox.Text = @"4";
+                textBox.Text = @"1";
             }
         }
         private void DisableUnsupportedAlgos()
@@ -107,7 +107,7 @@ namespace DF_FaceTracking.cs
                 Expressions,
                 Recognition
             };
-            foreach (var checkBox in new []{ Detection, Pose, Landmarks})
+            foreach (var checkBox in new []{ Detection, Pose, Landmarks, Expressions, Pulse})
             {
                 checkBox.Checked = true;
                 checkBox.Enabled = true;
@@ -1042,6 +1042,11 @@ namespace DF_FaceTracking.cs
         public bool IsPulseEnabled()
         {
             return Pulse.Checked;
+        }
+
+        private void NumDetectionText_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

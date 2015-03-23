@@ -254,6 +254,7 @@
             this.NumDetectionText.Name = "NumDetectionText";
             this.NumDetectionText.Size = new System.Drawing.Size(21, 20);
             this.NumDetectionText.TabIndex = 36;
+            this.NumDetectionText.TextChanged += new System.EventHandler(this.NumDetectionText_TextChanged);
             // 
             // NumLandmarksText
             // 
