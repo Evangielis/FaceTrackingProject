@@ -609,6 +609,8 @@ namespace DF_FaceTracking.cs
                     new object[] {status});
         }
 
+        public void StopMe() { Stopped = true; }
+
         private void Stop_Click(object sender, EventArgs e)
         {
             Stopped = true;
@@ -1079,6 +1081,12 @@ namespace DF_FaceTracking.cs
         private void NumDetectionText_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void questionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuizEditor editor = new QuizEditor();
+            editor.Show();
         }
 
     }

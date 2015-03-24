@@ -57,6 +57,9 @@
             this.Expressions = new System.Windows.Forms.CheckBox();
             this.Pulse = new System.Windows.Forms.CheckBox();
             this.NumPulseText = new System.Windows.Forms.TextBox();
+            this.quizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.questionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.Status2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Panel2)).BeginInit();
@@ -104,7 +107,8 @@
             this.colorResolutionToolStripMenuItem,
             this.moduleToolStripMenuItem,
             this.ProfileToolStripMenuItem,
-            this.modeToolStripMenuItem});
+            this.modeToolStripMenuItem,
+            this.quizToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -348,6 +352,29 @@
             this.NumPulseText.Size = new System.Drawing.Size(21, 20);
             this.NumPulseText.TabIndex = 52;
             // 
+            // quizToolStripMenuItem
+            // 
+            this.quizToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem});
+            this.quizToolStripMenuItem.Name = "quizToolStripMenuItem";
+            this.quizToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.quizToolStripMenuItem.Text = "Quiz";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.questionsToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // questionsToolStripMenuItem
+            // 
+            this.questionsToolStripMenuItem.Name = "questionsToolStripMenuItem";
+            this.questionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.questionsToolStripMenuItem.Text = "Questions";
+            this.questionsToolStripMenuItem.Click += new System.EventHandler(this.questionsToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,5 +443,8 @@
         private System.Windows.Forms.CheckBox Expressions;
         private System.Windows.Forms.CheckBox Pulse;
         private System.Windows.Forms.TextBox NumPulseText;
+        private System.Windows.Forms.ToolStripMenuItem quizToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem questionsToolStripMenuItem;
     }
 }

@@ -91,6 +91,22 @@
   <ItemGroup>
     <Compile Include="FaceTextOrganizer.cs" />
     <Compile Include="FaceTracking.cs" />
+    <Compile Include="Quiz.cs" />
+    <Compile Include="QuizDataSet.cs">
+      <DependentUpon>QuizDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QuizDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuizEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuizEditor.Designer.cs">
+      <DependentUpon>QuizEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuizQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +145,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="QuizDataSet.xsc">
+      <DependentUpon>QuizDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuizDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuizDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QuizDataSet.xss">
+      <DependentUpon>QuizDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -153,6 +180,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="QuizEditor.resx">
+      <DependentUpon>QuizEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuizQuestion.resx">
+      <DependentUpon>QuizQuestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuizStartForm.resx">
       <DependentUpon>QuizStartForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +203,9 @@
       <HintPath>$(PXCCLRPath)</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

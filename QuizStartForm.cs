@@ -13,12 +13,16 @@ namespace DF_FaceTracking.cs
     public partial class QuizStartForm : Form
     {
         MainForm mform;
+        Quiz mquiz;
 
         public QuizStartForm(MainForm parent)
         {
             InitializeComponent();
 
             mform = parent;
+
+            //Event fired when form is closing
+            FormClosing += QuizStartForm_FormClosing;
         }
 
         public void ShowQuiz()
@@ -28,7 +32,12 @@ namespace DF_FaceTracking.cs
 
         private void QuizStartForm_Load(object sender, EventArgs e)
         {
+            this.mquiz = new Quiz();
+        }
 
+        private void QuizStartForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mform.StopMe();
         }
 
         private void button1_Click(object sender, EventArgs e)
