@@ -3,7 +3,6 @@ using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections.Concurrent;
 
 namespace DF_FaceTracking.cs
 {
@@ -14,12 +13,12 @@ namespace DF_FaceTracking.cs
         Hard = 3
     };
 
-    struct Question
+    public struct Question
     {
-        int id;
-        string text;
-        Difficulty diff;
-        string answer;
+        public int id;
+        public string text;
+        public Difficulty diff;
+        public string answer;
 
         public Question(int id, string text, Difficulty diff, string answer)
         {
@@ -37,14 +36,14 @@ namespace DF_FaceTracking.cs
         const int DEFAULT_NUM_QUESTIONS = 15;
 
         QuizDataSet that;
-        public ConcurrentBag<Question> qBag;
+        public Stack<Question> qBag;
         public int NumQuestions { get; private set; }
 
         public Quiz(int numQuestions)
         {
             this.NumQuestions = numQuestions;
             this.that = new QuizDataSet();
-            this.qBag = new ConcurrentBag<Question>();
+            this.qBag = new Stack<Question>();
 
             this.LoadQuestions();
             this.InitializeBag();
@@ -53,18 +52,23 @@ namespace DF_FaceTracking.cs
         public Quiz() : this(DEFAULT_NUM_QUESTIONS) {}
 
         public Question GetQuestion()
-        {
-            Question q;
-            this.qBag.TryTake(out q);
-            return q;
+        {            
+            return this.qBag.Pop();
         }
         
         private void InitializeBag()
         {
+            Stack<Question> myStack = new Stack<Question>();
             foreach (DataRow dr in that.Tables["QUESTIONS"].Rows)
             {
-                this.qBag.Add(QuestionFromRow(dr));
+                myStack.Push(QuestionFromRow(dr));
             }
+
+            Random rgen = new Random();
+            IEnumerable<Question> query = myStack.OrderBy(x => rgen.Next(this.NumQuestions));
+            foreach (Question q in query)
+                this.qBag.Push(q);
+
         }
 
         private Question QuestionFromRow(DataRow dr)

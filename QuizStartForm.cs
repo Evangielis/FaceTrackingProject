@@ -42,13 +42,16 @@ namespace DF_FaceTracking.cs
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lock (mform.m_expressionStatus)
+            /*lock (mform.m_expressionStatus)
             {
                 foreach (var expr in mform.m_expressionStatus)
                 {
                     Console.Out.WriteLine(expr.Key + " : " + expr.Value);
                 }
-            }
+            }*/
+
+            QuizQuestion qq = new QuizQuestion(this.mquiz.GetQuestion());
+            qq.Show();
         }
     }
 }

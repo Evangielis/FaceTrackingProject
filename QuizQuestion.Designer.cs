@@ -32,10 +32,13 @@
             this.answerBox = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // questionBox
             // 
+            this.questionBox.Enabled = false;
+            this.questionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questionBox.Location = new System.Drawing.Point(12, 28);
             this.questionBox.Multiline = true;
             this.questionBox.Name = "questionBox";
@@ -66,17 +69,29 @@
             this.progressBar1.Size = new System.Drawing.Size(377, 23);
             this.progressBar1.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Answer the Following:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // QuizQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 419);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.answerBox);
             this.Controls.Add(this.questionBox);
             this.Name = "QuizQuestion";
             this.Text = "QuizQuestion";
+            this.Load += new System.EventHandler(this.QuizQuestion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,5 +103,6 @@
         private System.Windows.Forms.TextBox answerBox;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label1;
     }
 }

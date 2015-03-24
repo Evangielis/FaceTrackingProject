@@ -20,3 +20,4 @@ C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.Prop
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs_vs2010-13.csproj.GenerateResource.Cache
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizStartForm.resources
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizEditor.resources
+C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizQuestion.resources
