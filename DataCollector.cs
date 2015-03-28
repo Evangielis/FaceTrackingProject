@@ -41,6 +41,8 @@ namespace DF_FaceTracking.cs
             this._data = new QuizDataSet();
             this.dataPoints = new DataTable("DATA");
             this.dataPoints.Columns.Add("TimeStamp", typeof(DateTime));
+            this.dataPoints.Columns.Add("NumFaces", typeof(int));
+            this.dataPoints.Columns.Add("Pulse", typeof(int));
             foreach (PXCMFaceData.ExpressionsData.FaceExpression expr in Enum.GetValues(typeof(PXCMFaceData.ExpressionsData.FaceExpression)))
                 this.dataPoints.Columns.Add(expr.ToString(), typeof(Int32));
 
@@ -90,6 +92,8 @@ namespace DF_FaceTracking.cs
                         }
                     }
                     dr["TimeStamp"] = DateTime.Now;
+                    dr["Pulse"] = mform.PulseRate;
+                    dr["NumFaces"] = mform.NumFaces;
                     this.dataPoints.Rows.Add(dr);
                     Thread.Sleep(SAMPLING_RATE);
                 }

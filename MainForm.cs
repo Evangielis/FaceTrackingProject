@@ -40,6 +40,9 @@ namespace DF_FaceTracking.cs
         private static ToolStripMenuItem m_moduleMenuItem;
         private static readonly int LANDMARK_ALIGNMENT = -3;
 
+        public int PulseRate { get; private set; }
+        public int NumFaces { get; private set; }
+
         public MainForm(PXCMSession session)
         {
             InitializeComponent();
@@ -57,6 +60,9 @@ namespace DF_FaceTracking.cs
 
             FormClosing += MainForm_FormClosing;
             Panel2.Paint += Panel_Paint;
+
+            this.PulseRate = 0;
+            this.NumFaces = 0;
         }
 
         private void InitializeTextBoxes()
@@ -653,7 +659,9 @@ namespace DF_FaceTracking.cs
         {
             Debug.Assert(moduleOutput != null);
 
-            for (var i = 0; i < moduleOutput.QueryNumberOfDetectedFaces(); i++)
+            this.NumFaces = moduleOutput.QueryNumberOfDetectedFaces();
+
+            for (var i = 0; i < this.NumFaces; i++)
             {
                 PXCMFaceData.Face face = moduleOutput.QueryFaceByIndex(i);
                 if (face == null)
@@ -967,6 +975,7 @@ namespace DF_FaceTracking.cs
                             positionYText += imageSizeHeight;
                         }
 
+                        //Save expression data
                         this.m_expressionStatus[expressionEntry.Key] = result.intensity;
                     }
                 }
@@ -1004,11 +1013,16 @@ namespace DF_FaceTracking.cs
 
             var pulseData = face.QueryPulse();
             if (pulseData == null)            
-                return;               
+                return;
+
+            float prate = pulseData.QueryHeartRate();
+            
+            //Save Pulse
+            this.PulseRate = (int)prate;
 
             lock (m_bitmapLock)
             {
-                var pulseString = "Pulse: " + pulseData.QueryHeartRate();
+                var pulseString = "Pulse: " + prate;
                 
                 using (var graphics = Graphics.FromImage(m_bitmap))
                 using (var brush = new SolidBrush(m_faceTextOrganizer.Colour))
@@ -1017,7 +1031,6 @@ namespace DF_FaceTracking.cs
                     graphics.DrawString(pulseString, font, brush, m_faceTextOrganizer.PulseLocation);
                 }
             }
-            
         }
 
         #endregion
