@@ -7,19 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
 
 namespace DF_FaceTracking.cs
 {
-    public partial class QuizStartForm : Form
+    public partial class QuizMainForm : Form
     {
         MainForm mform;
         Quiz mquiz;
+        string mname;
+        DataCollector mdata;
 
-        public QuizStartForm(MainForm parent)
+        public QuizMainForm(MainForm parent)
         {
             InitializeComponent();
 
             mform = parent;
+            mname = String.Empty;
 
             //Event fired when form is closing
             FormClosing += QuizStartForm_FormClosing;
@@ -32,7 +36,12 @@ namespace DF_FaceTracking.cs
 
         private void QuizStartForm_Load(object sender, EventArgs e)
         {
-            this.mquiz = new Quiz();
+            quizStartButton.Enabled = false;
+
+            if (!(Directory.Exists("Data")))
+            {
+                Directory.CreateDirectory("Data");
+            }
         }
 
         private void QuizStartForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -50,8 +59,28 @@ namespace DF_FaceTracking.cs
                 }
             }*/
 
-            QuizQuestion qq = new QuizQuestion(this.mquiz.GetQuestion());
-            qq.Show();
+            //Control manipulations
+            textBox1.Enabled = false;
+            this.mquiz = new Quiz(mname);
+
+            foreach(Question q in (IEnumerable<Question>)this.mquiz)
+            {
+                PresentQuestion(q);
+            }
+        }
+
+        private void PresentQuestion(Question q)
+        {
+            //Pull quiz question
+            mdata = new DataCollector(mname, q.id, mform);
+            QuizQuestion qq = new QuizQuestion(q, mdata);
+            qq.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            quizStartButton.Enabled = (textBox1.Text != String.Empty);
+            mname = textBox1.Text;
         }
     }
 }

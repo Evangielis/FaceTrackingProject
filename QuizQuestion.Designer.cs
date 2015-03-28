@@ -61,6 +61,7 @@
             this.submitButton.TabIndex = 2;
             this.submitButton.Text = "Submit Answer";
             this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // progressBar1
             // 
@@ -68,6 +69,7 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(377, 23);
             this.progressBar1.TabIndex = 3;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // label1
             // 

@@ -31,16 +31,18 @@ namespace DF_FaceTracking.cs
         public Question(int id, string text, int diff, string answer) : this(id, text, (Difficulty)diff, answer) { }
     }
 
-    class Quiz
+    class Quiz : IEnumerable<Question>
     {
         const int DEFAULT_NUM_QUESTIONS = 15;
 
+        public string Owner { get; private set; }
         QuizDataSet that;
         public Stack<Question> qBag;
         public int NumQuestions { get; private set; }
 
-        public Quiz(int numQuestions)
+        public Quiz(string Owner, int numQuestions)
         {
+            this.Owner = Owner;
             this.NumQuestions = numQuestions;
             this.that = new QuizDataSet();
             this.qBag = new Stack<Question>();
@@ -49,7 +51,7 @@ namespace DF_FaceTracking.cs
             this.InitializeBag();
         }
 
-        public Quiz() : this(DEFAULT_NUM_QUESTIONS) {}
+        public Quiz(string Owner) : this(Owner, DEFAULT_NUM_QUESTIONS) {}
 
         public Question GetQuestion()
         {            
@@ -58,17 +60,10 @@ namespace DF_FaceTracking.cs
         
         private void InitializeBag()
         {
-            Stack<Question> myStack = new Stack<Question>();
             foreach (DataRow dr in that.Tables["QUESTIONS"].Rows)
             {
-                myStack.Push(QuestionFromRow(dr));
+                qBag.Push(QuestionFromRow(dr));
             }
-
-            Random rgen = new Random();
-            IEnumerable<Question> query = myStack.OrderBy(x => rgen.Next(this.NumQuestions));
-            foreach (Question q in query)
-                this.qBag.Push(q);
-
         }
 
         private Question QuestionFromRow(DataRow dr)
@@ -117,6 +112,22 @@ namespace DF_FaceTracking.cs
             row["Difficulty"] = (int)diff;
             row["Answer"] = ans;
             that.Tables["QUESTIONS"].Rows.Add(row);
+        }
+
+        IEnumerator<Question> GetEnum()
+        {
+            Random rgen = new Random();
+            return this.qBag.OrderBy(x => rgen.Next(this.NumQuestions)).GetEnumerator();
+        }
+
+        IEnumerator<Question> IEnumerable<Question>.GetEnumerator()
+        {
+            return this.GetEnum();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.GetEnum();
         }
     }
 }

@@ -2,7 +2,7 @@
     
     
     public partial class QuizDataSet {
-        partial class QUESTIONSDataTable
+        partial class RESPONSESDataTable
         {
         }
     }

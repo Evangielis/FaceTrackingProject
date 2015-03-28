@@ -12,13 +12,28 @@
   <xs:element name="QuizDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="QuizDataSet" msprop:Generator_UserDSName="QuizDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="QUESTIONS" msprop:Generator_TableClassName="QUESTIONSDataTable" msprop:Generator_TableVarName="tableQUESTIONS" msprop:Generator_RowChangedName="QUESTIONSRowChanged" msprop:Generator_TablePropName="QUESTIONS" msprop:Generator_RowDeletingName="QUESTIONSRowDeleting" msprop:Generator_RowChangingName="QUESTIONSRowChanging" msprop:Generator_RowEvHandlerName="QUESTIONSRowChangeEventHandler" msprop:Generator_RowDeletedName="QUESTIONSRowDeleted" msprop:Generator_RowClassName="QUESTIONSRow" msprop:Generator_UserTableName="QUESTIONS" msprop:Generator_RowEvArgName="QUESTIONSRowChangeEvent">
+        <xs:element name="QUESTIONS" msprop:Generator_TableClassName="QUESTIONSDataTable" msprop:Generator_TableVarName="tableQUESTIONS" msprop:Generator_TablePropName="QUESTIONS" msprop:Generator_RowDeletingName="QUESTIONSRowDeleting" msprop:Generator_RowChangingName="QUESTIONSRowChanging" msprop:Generator_RowEvHandlerName="QUESTIONSRowChangeEventHandler" msprop:Generator_RowDeletedName="QUESTIONSRowDeleted" msprop:Generator_UserTableName="QUESTIONS" msprop:Generator_RowChangedName="QUESTIONSRowChanged" msprop:Generator_RowEvArgName="QUESTIONSRowChangeEvent" msprop:Generator_RowClassName="QUESTIONSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="pID" msprop:Generator_ColumnVarNameInTable="columnpID" msprop:Generator_ColumnPropNameInRow="pID" msprop:Generator_ColumnPropNameInTable="pIDColumn" msprop:Generator_UserColumnName="pID" type="xs:int" minOccurs="0" />
               <xs:element name="Text" msprop:Generator_ColumnVarNameInTable="columnText" msprop:Generator_ColumnPropNameInRow="Text" msprop:Generator_ColumnPropNameInTable="TextColumn" msprop:Generator_UserColumnName="Text" type="xs:string" minOccurs="0" />
-              <xs:element name="Difficulty" msprop:Generator_ColumnVarNameInTable="columnDifficulty" msprop:Generator_ColumnPropNameInRow="Difficulty" msprop:Generator_ColumnPropNameInTable="DifficultyColumn" msprop:Generator_UserColumnName="Difficulty" type="xs:int" minOccurs="0" />
+              <xs:element name="Difficulty" msprop:Generator_ColumnVarNameInTable="columnDifficulty" msprop:Generator_ColumnPropNameInRow="Difficulty" msprop:Generator_ColumnPropNameInTable="DifficultyColumn" msprop:Generator_UserColumnName="Difficulty" type="xs:string" minOccurs="0" />
               <xs:element name="Answer" msprop:Generator_ColumnVarNameInTable="columnAnswer" msprop:Generator_ColumnPropNameInRow="Answer" msprop:Generator_ColumnPropNameInTable="AnswerColumn" msprop:Generator_UserColumnName="Answer" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RESPONSES" msprop:Generator_TableClassName="RESPONSESDataTable" msprop:Generator_TableVarName="tableRESPONSES" msprop:Generator_TablePropName="RESPONSES" msprop:Generator_RowDeletingName="RESPONSESRowDeleting" msprop:Generator_RowChangingName="RESPONSESRowChanging" msprop:Generator_RowEvHandlerName="RESPONSESRowChangeEventHandler" msprop:Generator_RowDeletedName="RESPONSESRowDeleted" msprop:Generator_UserTableName="RESPONSES" msprop:Generator_RowChangedName="RESPONSESRowChanged" msprop:Generator_RowEvArgName="RESPONSESRowChangeEvent" msprop:Generator_RowClassName="RESPONSESRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Text" msprop:Generator_ColumnVarNameInTable="columnText" msprop:Generator_ColumnPropNameInRow="Text" msprop:Generator_ColumnPropNameInTable="TextColumn" msprop:Generator_UserColumnName="Text" type="xs:string" minOccurs="0" />
+              <xs:element name="qID" msprop:Generator_ColumnVarNameInTable="columnqID" msprop:Generator_ColumnPropNameInRow="qID" msprop:Generator_ColumnPropNameInTable="qIDColumn" msprop:Generator_UserColumnName="qID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="USERS" msprop:Generator_TableClassName="USERSDataTable" msprop:Generator_TableVarName="tableUSERS" msprop:Generator_TablePropName="USERS" msprop:Generator_RowDeletingName="USERSRowDeleting" msprop:Generator_RowChangingName="USERSRowChanging" msprop:Generator_RowEvHandlerName="USERSRowChangeEventHandler" msprop:Generator_RowDeletedName="USERSRowDeleted" msprop:Generator_UserTableName="USERS" msprop:Generator_RowChangedName="USERSRowChanged" msprop:Generator_RowEvArgName="USERSRowChangeEvent" msprop:Generator_RowClassName="USERSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

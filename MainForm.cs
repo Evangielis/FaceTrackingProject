@@ -519,7 +519,7 @@ namespace DF_FaceTracking.cs
             var thread = new Thread(DoTracking);
             thread.Start();
 
-            QuizStartForm quiz = new QuizStartForm(this);
+            QuizMainForm quiz = new QuizMainForm(this);
             quiz.Show();
 
             Console.Out.WriteLine("Method completed!");

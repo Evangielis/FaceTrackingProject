@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DF_FaceTracking.cs", "DF_FaceTracking.cs_vs2010-13.csproj", "{DED2187A-52A5-466E-8B3D-BFF013770412}"
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DF_FaceTracking.cs_vs2010-13", "DF_FaceTracking.cs_vs2010-13.csproj", "{DED2187A-52A5-466E-8B3D-BFF013770412}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -89,6 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataCollector.cs" />
     <Compile Include="FaceTextOrganizer.cs" />
     <Compile Include="FaceTracking.cs" />
     <Compile Include="Quiz.cs" />
@@ -113,11 +114,11 @@
     <Compile Include="QuizQuestion.Designer.cs">
       <DependentUpon>QuizQuestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuizStartForm.cs">
+    <Compile Include="QuizMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuizStartForm.Designer.cs">
-      <DependentUpon>QuizStartForm.cs</DependentUpon>
+    <Compile Include="QuizMainForm.Designer.cs">
+      <DependentUpon>QuizMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -186,8 +187,8 @@
     <EmbeddedResource Include="QuizQuestion.resx">
       <DependentUpon>QuizQuestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuizStartForm.resx">
-      <DependentUpon>QuizStartForm.cs</DependentUpon>
+    <EmbeddedResource Include="QuizMainForm.resx">
+      <DependentUpon>QuizMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -206,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
