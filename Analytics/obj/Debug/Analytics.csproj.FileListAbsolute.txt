@@ -1,0 +1,9 @@
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\bin\Debug\Analytics.exe.config
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\bin\Debug\Analytics.exe
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\bin\Debug\Analytics.pdb
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\obj\Debug\Analytics.csprojResolveAssemblyReference.cache
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\obj\Debug\Analytics.MainForm.resources
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\obj\Debug\Analytics.Properties.Resources.resources
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\obj\Debug\Analytics.csproj.GenerateResource.Cache
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\obj\Debug\Analytics.exe
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\Analytics\obj\Debug\Analytics.pdb
