@@ -21,3 +21,16 @@ C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs_vs20
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizEditor.resources
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizQuestion.resources
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizMainForm.resources
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\bin\x64\Debug\DF_FaceTracking.cs.exe.config
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs.exe
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs.pdb
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\bin\x64\Debug\DF_FaceTracking.cs.exe
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\bin\x64\Debug\DF_FaceTracking.cs.pdb
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\bin\x64\Debug\libpxcclr.cs.dll
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs_vs2010-13.csprojResolveAssemblyReference.cache
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs.QuizEditor.resources
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs.QuizQuestion.resources
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs.QuizMainForm.resources
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs.MainForm.resources
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs.Properties.Resources.resources
+C:\Users\Lee\Documents\Visual Studio 2013\Projects\FaceTrackingProject\obj\x64\Debug\DF_FaceTracking.cs_vs2010-13.csproj.GenerateResource.Cache
