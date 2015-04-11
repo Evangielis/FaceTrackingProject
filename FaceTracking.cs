@@ -108,7 +108,9 @@ namespace DF_FaceTracking.cs
             
             // Set Module            
             pp.EnableFace();
+            pp.EnableEmotion();
             PXCMFaceModule faceModule = pp.QueryFace();
+
             if (faceModule == null)
             {
                 Debug.Assert(faceModule != null);
@@ -217,6 +219,9 @@ namespace DF_FaceTracking.cs
 
                     while (!m_form.Stopped)
                     {
+                        //Query for emotion data
+                        PXCMEmotion emoModule = pp.QueryEmotion();
+
                         if (pp.AcquireFrame(true) < pxcmStatus.PXCM_STATUS_NO_ERROR) break;
                         var isConnected = pp.IsConnected();
                         DisplayDeviceConnection(isConnected);
@@ -236,6 +241,7 @@ namespace DF_FaceTracking.cs
 
                             m_form.DrawGraphics(moduleOutput);
                             m_form.UpdatePanel();
+                            m_form.UpdateEmotion(emoModule);
                         }
                         pp.ReleaseFrame();
                     }

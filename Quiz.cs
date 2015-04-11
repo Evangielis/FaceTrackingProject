@@ -31,13 +31,13 @@ namespace DF_FaceTracking.cs
         public Question(int id, string text, int diff, string answer) : this(id, text, (Difficulty)diff, answer) { }
     }
 
-    class Quiz : IEnumerable<Question>
+    public class Quiz : IEnumerable<Question>
     {
         const int DEFAULT_NUM_QUESTIONS = 15;
 
         public string Owner { get; private set; }
         QuizDataSet that;
-        public Stack<Question> qBag;
+        public Queue<Question> qBag;
         public int NumQuestions { get; private set; }
 
         public Quiz(string Owner, int numQuestions)
@@ -45,7 +45,7 @@ namespace DF_FaceTracking.cs
             this.Owner = Owner;
             this.NumQuestions = numQuestions;
             this.that = new QuizDataSet();
-            this.qBag = new Stack<Question>();
+            this.qBag = new Queue<Question>();
 
             this.LoadQuestions();
             this.InitializeBag();
@@ -55,14 +55,19 @@ namespace DF_FaceTracking.cs
 
         public Question GetQuestion()
         {            
-            return this.qBag.Pop();
+            return this.qBag.Dequeue();
+        }
+
+        public Question[] ToArray()
+        {
+            return this.qBag.ToArray();
         }
         
         private void InitializeBag()
         {
             foreach (DataRow dr in that.Tables["QUESTIONS"].Rows)
             {
-                qBag.Push(QuestionFromRow(dr));
+                qBag.Enqueue(QuestionFromRow(dr));
             }
         }
 
@@ -86,7 +91,7 @@ namespace DF_FaceTracking.cs
         private void LoadQuestions()
         {
             //Console.Out.WriteLine(that.DataSetName);
-            AddQuestion(1, "I have two coins totaling 15 cents, one of which is not a nickle. What are the two coins?", Difficulty.Easy, "a dime and a nickle.");
+            /*AddQuestion(1, "I have two coins totaling 15 cents, one of which is not a nickle. What are the two coins?", Difficulty.Easy, "a dime and a nickle.");
             AddQuestion(2, "You have two ropes. Each rope takes one hour to burn. These ropes are not identical, nor are they uniform (i.e. it does not burn at an even rate and are different lengths). With only these two ropes and a way to light them, how do you measure 45 minutes?", Difficulty.Easy, "Light both ends of one rope, and only one end of the other rope. This will cause the first rope to burn out in 30 minutes. When the first one is burnt out, light the other end of the remaining rope and it will burn out in 15 minutes, measuring 45 minutes.");
             AddQuestion(3, "Find the only three words in the English language that are all of the following: \n1) Four letter long \n2) Start with T,C, and B \n3) The last three letters of each word are exactly the same \n4) They do not rhyme", Difficulty.Medium, "Tomb,comb, bomb");
             AddQuestion(4, "By myself i am 24, with a friend I am 20, and one more makes me dirty.", Difficulty.Hard, "The letter x");
@@ -100,7 +105,12 @@ namespace DF_FaceTracking.cs
             AddQuestion(12, "Find a word that the first 2 letters are a male, the first 3 letters are a female, the first four letters are a great male, and the whole word is a great female.", Difficulty.Hard, "Heroine");
             AddQuestion(13, "I have deserts without sand, I have seas without water, I have forests without trees. What am I?", Difficulty.Easy, "A map");
             AddQuestion(14, "Useless alone, but three is too much. Need two for a hike, and wooden if Dutch.", Difficulty.Hard, "Shoes");
-            AddQuestion(15, "Is it always true that 6/2(1+2) = 6/2c where c=1+2?", Difficulty.Medium, "Maybe");
+            AddQuestion(15, "Is it always true that 6/2(1+2) = 6/2c where c=1+2?", Difficulty.Medium, "Maybe");*/
+            AddQuestion(1, "Who is the President of the United States?", Difficulty.Easy, "Barak Obama");
+            AddQuestion(2, "How many fingers am I holding up? (Hold up four)", Difficulty.Easy, "Four");
+            AddQuestion(3, "I have two coins totaling 15 cents, one of which is not a nickle. What are the two coins?", Difficulty.Medium, "A dime and a nickle.");
+            AddQuestion(4, "Has anyone really been far enough and decided to use even what they look like?", Difficulty.Hard, "Nonsense");
+            AddQuestion(5, "There’s a dead man in a room surrounded by 53 bicycles. Why is he dead?", Difficulty.Hard, "He was caught cheating at cards.");
         }
 
 
@@ -114,10 +124,12 @@ namespace DF_FaceTracking.cs
             that.Tables["QUESTIONS"].Rows.Add(row);
         }
 
-        IEnumerator<Question> GetEnum()
+        public QuizEnumerator GetEnum()
         {
-            Random rgen = new Random();
-            return this.qBag.OrderBy(x => rgen.Next(this.NumQuestions)).GetEnumerator();
+            //Random rgen = new Random();
+            //return this.qBag.OrderBy(x => rgen.Next(this.NumQuestions)).GetEnumerator();
+
+            return new QuizEnumerator(this);
         }
 
         IEnumerator<Question> IEnumerable<Question>.GetEnumerator()
@@ -128,6 +140,45 @@ namespace DF_FaceTracking.cs
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return this.GetEnum();
+        }
+    }
+
+    public class QuizEnumerator : IEnumerator<Question>
+    {
+        public int QIndex { get; private set; }
+        public Question[] myQuestions { get; set; }
+        public int Count { get { return this.myQuestions.Length; } }
+
+        public QuizEnumerator(Quiz q)
+        {
+            this.myQuestions = q.ToArray();
+            this.QIndex = -1;
+        }
+
+        Question IEnumerator<Question>.Current
+        {
+            get { return this.myQuestions[this.QIndex]; }
+        }
+
+        void IDisposable.Dispose()
+        {
+            this.myQuestions = null;
+        }
+
+        object System.Collections.IEnumerator.Current
+        {
+            get { return this.myQuestions[this.QIndex]; }
+        }
+
+        bool System.Collections.IEnumerator.MoveNext()
+        {
+            this.QIndex++;
+            return !(QIndex >= myQuestions.Length);
+        }
+
+        void System.Collections.IEnumerator.Reset()
+        {
+            this.QIndex = -1;
         }
     }
 }

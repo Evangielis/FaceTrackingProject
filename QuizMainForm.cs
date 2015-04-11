@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.IO;
+using System.Diagnostics;
 
 namespace DF_FaceTracking.cs
 {
@@ -17,6 +18,10 @@ namespace DF_FaceTracking.cs
         Quiz mquiz;
         string mname;
         DataCollector mdata;
+        public Stopwatch Clock { get; private set; }
+
+
+        public QuizEnumerator qEnum { get; private set; }
 
         public QuizMainForm(MainForm parent)
         {
@@ -24,6 +29,7 @@ namespace DF_FaceTracking.cs
 
             mform = parent;
             mname = String.Empty;
+            Clock = new Stopwatch();
 
             //Event fired when form is closing
             FormClosing += QuizStartForm_FormClosing;
@@ -31,6 +37,7 @@ namespace DF_FaceTracking.cs
 
         public void ShowQuiz()
         {
+            this.Clock.Start();
             this.Show();
         }
 
@@ -62,17 +69,18 @@ namespace DF_FaceTracking.cs
             //Control manipulations
             textBox1.Enabled = false;
             this.mquiz = new Quiz(mname);
+            this.qEnum = this.mquiz.GetEnum();
 
-            foreach(Question q in (IEnumerable<Question>)this.mquiz)
+            while((this.qEnum as IEnumerator<Question>).MoveNext())
             {
-                PresentQuestion(q);
+                PresentQuestion((this.qEnum as IEnumerator<Question>).Current);
             }
         }
 
         private void PresentQuestion(Question q)
         {
             //Pull quiz question
-            mdata = new DataCollector(mname, q.id, mform);
+            mdata = new DataCollector(mname, q.id, mform, this.Clock);
             QuizQuestion qq = new QuizQuestion(q, mdata);
             qq.ShowDialog();
         }

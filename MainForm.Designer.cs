@@ -39,6 +39,9 @@
             this.Live = new System.Windows.Forms.ToolStripMenuItem();
             this.Playback = new System.Windows.Forms.ToolStripMenuItem();
             this.Record = new System.Windows.Forms.ToolStripMenuItem();
+            this.quizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.questionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Status2 = new System.Windows.Forms.StatusStrip();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.AlertsLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -57,9 +60,6 @@
             this.Expressions = new System.Windows.Forms.CheckBox();
             this.Pulse = new System.Windows.Forms.CheckBox();
             this.NumPulseText = new System.Windows.Forms.TextBox();
-            this.quizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.questionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.Status2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Panel2)).BeginInit();
@@ -161,6 +161,29 @@
             this.Record.Text = "Record";
             this.Record.Click += new System.EventHandler(this.Record_Click);
             // 
+            // quizToolStripMenuItem
+            // 
+            this.quizToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem});
+            this.quizToolStripMenuItem.Name = "quizToolStripMenuItem";
+            this.quizToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.quizToolStripMenuItem.Text = "Quiz";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.questionsToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // questionsToolStripMenuItem
+            // 
+            this.questionsToolStripMenuItem.Name = "questionsToolStripMenuItem";
+            this.questionsToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.questionsToolStripMenuItem.Text = "Questions";
+            this.questionsToolStripMenuItem.Click += new System.EventHandler(this.questionsToolStripMenuItem_Click);
+            // 
             // Status2
             // 
             this.Status2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -214,6 +237,7 @@
             this.Panel2.Size = new System.Drawing.Size(802, 444);
             this.Panel2.TabIndex = 27;
             this.Panel2.TabStop = false;
+            this.Panel2.Click += new System.EventHandler(this.Panel2_Click);
             // 
             // Recognition
             // 
@@ -351,29 +375,6 @@
             this.NumPulseText.Name = "NumPulseText";
             this.NumPulseText.Size = new System.Drawing.Size(21, 20);
             this.NumPulseText.TabIndex = 52;
-            // 
-            // quizToolStripMenuItem
-            // 
-            this.quizToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem});
-            this.quizToolStripMenuItem.Name = "quizToolStripMenuItem";
-            this.quizToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.quizToolStripMenuItem.Text = "Quiz";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.questionsToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // questionsToolStripMenuItem
-            // 
-            this.questionsToolStripMenuItem.Name = "questionsToolStripMenuItem";
-            this.questionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.questionsToolStripMenuItem.Text = "Questions";
-            this.questionsToolStripMenuItem.Click += new System.EventHandler(this.questionsToolStripMenuItem_Click);
             // 
             // MainForm
             // 

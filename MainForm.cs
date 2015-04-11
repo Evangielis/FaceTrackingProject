@@ -42,11 +42,21 @@ namespace DF_FaceTracking.cs
 
         public int PulseRate { get; private set; }
         public int NumFaces { get; private set; }
+        public PXCMEmotion.EmotionData[] EmoData { get; private set; }
+        public QuizMainForm qMain { get; private set; }
+
+        private string[] EmotionLabels = { "ANGER", "CONTEMPT", "DISGUST", "FEAR", "JOY", "SADNESS", "SURPRISE" };
+        private string[] SentimentLabels = { "NEGATIVE", "POSITIVE", "NEUTRAL" };
+
+        public int NUM_EMOTIONS = 10;
+        public int NUM_PRIMARY_EMOTIONS = 7;
 
         public MainForm(PXCMSession session)
         {
             InitializeComponent();
             InitializeTextBoxes();
+
+            this.qMain = new QuizMainForm(this);
 
             m_faceTextOrganizer = new FaceTextOrganizer();
             m_deviceMenuItem = new ToolStripMenuItem("Device");
@@ -525,8 +535,7 @@ namespace DF_FaceTracking.cs
             var thread = new Thread(DoTracking);
             thread.Start();
 
-            QuizMainForm quiz = new QuizMainForm(this);
-            quiz.Show();
+            qMain.ShowQuiz();
 
             Console.Out.WriteLine("Method completed!");
         }
@@ -681,6 +690,8 @@ namespace DF_FaceTracking.cs
                 DrawExpressions(face);
                 DrawRecognition(face);
             }
+
+            DrawQuizInfo();
         }
 
         private void RegisterUser_Click(object sender, EventArgs e)
@@ -834,6 +845,32 @@ namespace DF_FaceTracking.cs
                 {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_BROW_RAISER_RIGHT, 0},
                 {PXCMFaceData.ExpressionsData.FaceExpression.EXPRESSION_BROW_RAISER_LEFT, 0}
             };
+
+        public void DrawQuizInfo()
+        {
+            if (m_bitmap == null || this.qMain == null)
+                return;
+
+            string timestamp = qMain.Clock.ElapsedMilliseconds.ToString();
+
+            lock(m_bitmapLock)
+            {
+                using (Graphics graphics = Graphics.FromImage(m_bitmap))
+                using (var pen = new Pen(m_faceTextOrganizer.Colour, 3.0f))
+                using (var brush = new SolidBrush(Color.Red))
+                using (var font = new Font(FontFamily.GenericMonospace, m_faceTextOrganizer.FontSize * 2, FontStyle.Bold))                
+                {
+                    if ((this.qMain.qEnum != null) && (this.qMain.qEnum.QIndex < this.qMain.qEnum.Count))
+                    {
+                        timestamp += "  #" + (this.qMain.qEnum.QIndex + 1).ToString();
+                    }
+
+                    SizeF tsSize = graphics.MeasureString(timestamp, font);
+                    graphics.FillRectangle(new SolidBrush(Color.Black), new Rectangle(0, 0, Convert.ToInt32(tsSize.Width + 20), Convert.ToInt32(tsSize.Height + 10)));
+                    graphics.DrawString(timestamp, font, brush, m_faceTextOrganizer.TimeStampLoc);
+                }
+            }
+        }
 
         public void DrawLocation(PXCMFaceData.Face face)
         {
@@ -1102,5 +1139,22 @@ namespace DF_FaceTracking.cs
             editor.Show();
         }
 
+        private void Panel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void UpdateEmotion(PXCMEmotion emoMod)
+        {
+            if (emoMod.QueryNumFaces() == 0)
+                return;
+
+            /* Retrieve emotionDet location data */
+            PXCMEmotion.EmotionData[] arrData = new PXCMEmotion.EmotionData[this.NUM_EMOTIONS];
+            if (emoMod.QueryAllEmotionData(0, out arrData) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
+            {
+                this.EmoData = arrData;
+            }
+        }
     }
 }

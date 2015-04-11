@@ -10,6 +10,11 @@ namespace DF_FaceTracking.cs
             Color.Turquoise, Color.DeepSkyBlue
         };
 
+        public FaceTextOrganizer()
+        {
+            this.m_timestamp = new Point(10, 10);
+        }
+
         private Color m_color;
         private Point m_expression;
         private Point m_faceId;
@@ -17,7 +22,13 @@ namespace DF_FaceTracking.cs
         private Point m_pose;
         private Point m_recognitionId;
         private Point m_pulse;
+        private Point m_timestamp;
         private PXCMRectI32 m_rectangle;
+
+        public PointF TimeStampLoc
+        {
+            get { return m_timestamp; }
+        }
 
         public PointF RecognitionLocation
         {
