@@ -21,3 +21,6 @@ C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs_vs20
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizEditor.resources
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizQuestion.resources
 C:\Users\h2r\Source\Repos\FaceTrackingProj\obj\x64\Debug\DF_FaceTracking.cs.QuizMainForm.resources
+C:\Users\Lee\Source\Repos\FaceTracking\bin\x64\Debug\DF_FaceTracking.cs.exe.config
+C:\Users\Lee\Source\Repos\FaceTracking\obj\x64\Debug\DF_FaceTracking.cs.exe
+C:\Users\Lee\Source\Repos\FaceTracking\obj\x64\Debug\DF_FaceTracking.cs.pdb
