@@ -60,6 +60,7 @@
             this.Expressions = new System.Windows.Forms.CheckBox();
             this.Pulse = new System.Windows.Forms.CheckBox();
             this.NumPulseText = new System.Windows.Forms.TextBox();
+            this.annoBox = new System.Windows.Forms.CheckBox();
             this.MainMenu.SuspendLayout();
             this.Status2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Panel2)).BeginInit();
@@ -376,11 +377,22 @@
             this.NumPulseText.Size = new System.Drawing.Size(21, 20);
             this.NumPulseText.TabIndex = 52;
             // 
+            // annoBox
+            // 
+            this.annoBox.AutoSize = true;
+            this.annoBox.Location = new System.Drawing.Point(821, 358);
+            this.annoBox.Name = "annoBox";
+            this.annoBox.Size = new System.Drawing.Size(107, 17);
+            this.annoBox.TabIndex = 53;
+            this.annoBox.Text = "Annotation Mode";
+            this.annoBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 501);
+            this.Controls.Add(this.annoBox);
             this.Controls.Add(this.NumPulseText);
             this.Controls.Add(this.Pulse);
             this.Controls.Add(this.Expressions);
@@ -447,5 +459,6 @@
         private System.Windows.Forms.ToolStripMenuItem quizToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem questionsToolStripMenuItem;
+        private System.Windows.Forms.CheckBox annoBox;
     }
 }

@@ -111,6 +111,9 @@ namespace DF_FaceTracking.cs
             AddQuestion(3, "I have two coins totaling 15 cents, one of which is not a nickle. What are the two coins?", Difficulty.Medium, "A dime and a nickle.");
             AddQuestion(4, "Has anyone really been far enough and decided to use even what they look like?", Difficulty.Hard, "Nonsense");
             AddQuestion(5, "There’s a dead man in a room surrounded by 53 bicycles. Why is he dead?", Difficulty.Hard, "He was caught cheating at cards.");
+            AddQuestion(6, "Make a face of confusion.", Difficulty.Easy, "");
+            AddQuestion(7, "Make a face of understanding.", Difficulty.Easy, "");
+
         }
 
 

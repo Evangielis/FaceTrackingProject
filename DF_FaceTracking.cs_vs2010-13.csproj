@@ -92,6 +92,12 @@
     <Compile Include="DataCollector.cs" />
     <Compile Include="FaceTextOrganizer.cs" />
     <Compile Include="FaceTracking.cs" />
+    <Compile Include="AnnoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnoForm.Designer.cs">
+      <DependentUpon>AnnoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Quiz.cs" />
     <Compile Include="QuizDataSet.cs">
       <DependentUpon>QuizDataSet.xsd</DependentUpon>
@@ -181,6 +187,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AnnoForm.resx">
+      <DependentUpon>AnnoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuizEditor.resx">
       <DependentUpon>QuizEditor.cs</DependentUpon>
     </EmbeddedResource>

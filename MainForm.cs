@@ -44,6 +44,7 @@ namespace DF_FaceTracking.cs
         public int NumFaces { get; private set; }
         public PXCMEmotion.EmotionData[] EmoData { get; private set; }
         public QuizMainForm qMain { get; private set; }
+        public AnnoForm afMain { get; private set; }
 
         private string[] EmotionLabels = { "ANGER", "CONTEMPT", "DISGUST", "FEAR", "JOY", "SADNESS", "SURPRISE" };
         private string[] SentimentLabels = { "NEGATIVE", "POSITIVE", "NEUTRAL" };
@@ -57,6 +58,7 @@ namespace DF_FaceTracking.cs
             InitializeTextBoxes();
 
             this.qMain = new QuizMainForm(this);
+            this.afMain = new AnnoForm();
 
             m_faceTextOrganizer = new FaceTextOrganizer();
             m_deviceMenuItem = new ToolStripMenuItem("Device");
@@ -535,9 +537,13 @@ namespace DF_FaceTracking.cs
             var thread = new Thread(DoTracking);
             thread.Start();
 
-            qMain.ShowQuiz();
+            if (!annoBox.Checked)
+                qMain.ShowQuiz();
+            else
+                afMain.ShowMe();
 
-            Console.Out.WriteLine("Method completed!");
+
+            //Console.Out.WriteLine("Method completed!");
         }
 
         private void DoTracking()
@@ -850,8 +856,8 @@ namespace DF_FaceTracking.cs
         {
             if (m_bitmap == null || this.qMain == null)
                 return;
-
-            string timestamp = qMain.Clock.ElapsedMilliseconds.ToString();
+                
+            string timestamp = (annoBox.Checked) ? afMain.Clock.ElapsedMilliseconds.ToString() : qMain.Clock.ElapsedMilliseconds.ToString();
 
             lock(m_bitmapLock)
             {
